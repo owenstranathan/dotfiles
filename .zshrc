@@ -1,6 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_CUSTOM=/$HOME/.zsh-custom
+SSH_ENV=$HOME/.ssh/environment
 
 ZSH_THEME="agnoster"
 
@@ -14,6 +15,13 @@ plugins=(
   pipenv
   python
 )
+
+if grep -q Microsoft /proc/version; then
+  plugins+=(ssh-agent)
+  cd ~
+else
+  echo "WHAT?"
+fi
 
 source $ZSH/oh-my-zsh.sh
 
