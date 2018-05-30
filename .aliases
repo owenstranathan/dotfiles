@@ -1,0 +1,16 @@
+# aliases && functions
+alias echopath="echo $PATH | tr ':' '\n'"
+alias virc="vim ~/.zshrc"
+alias vialias="vim ~/.aliases"
+alias resource="source ~/.zshrc"
+alias pip=pip3
+alias python=python3
+alias vizsh="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
+function dotfiles() {
+  /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME $@
+}
+
+code() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
