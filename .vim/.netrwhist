@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/Noodle/.oh-my-zsh/plugins/python'
-let g:netrw_dirhist_2='/Users/Noodle/.oh-my-zsh/plugins/pip'
-let g:netrw_dirhist_3='/Users/Noodle'
