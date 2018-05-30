@@ -10,7 +10,7 @@ mkdir -p $HOME/.dotfiles-backup
 
 dotfiles checkout
 
-if [ $? = 0]; then
+if [ $? = 0 ]; then
   echo "dotfiles checked out.";
 else
   echo "backing up prexisting dotfiles.";
