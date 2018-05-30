@@ -18,12 +18,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.aliases;
+if [ -f $HOME/.zsh-aliases ]; then
+  source $HOME/.zsh-aliases;
 fi
 
-if [ -f $HOME/.profile ]; then
-  source $HOME/.profile;
+if [ -f $HOME/.zsh-profile ]; then
+  source $HOME/.zsh-profile;
 fi
 
 

@@ -12,5 +12,20 @@ function dotfiles() {
   /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME $@
 }
 
+function murder() {
+  if [[ ! $1 ]]; then
+    echo "No argument provided, need victim to murder"
+    return 1
+  fi
+  pid=$(ps aux | grep "$1" | grep -v grep | awk '{print $2}')
+  kill -9 $pid
+}
+
+function login-api(){
+  SECRET_NAME="! appfigures.com"
+  export API_USER=${USER}@appfigures.com
+  export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
+}
+
 code() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
