@@ -1,7 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_CUSTOM=/$HOME/.zsh-custom
-SSH_ENV=$HOME/.ssh/environment
 
 ZSH_THEME="agnoster"
 
