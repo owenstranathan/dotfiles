@@ -3,8 +3,6 @@ alias echopath="echo $PATH | tr ':' '\n'"
 alias virc="vim ~/.zshrc"
 alias vialias="vim ~/.aliases"
 alias resource="source ~/.zshrc"
-alias pip=pip3
-alias python=python3
 alias vizsh="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
