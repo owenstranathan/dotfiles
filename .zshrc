@@ -15,11 +15,10 @@ plugins=(
   python
 )
 
-if grep -q Microsoft /proc/version; then
-  plugins+=(ssh-agent)
-  cd ~
-else
-  echo "WHAT?"
+if [ -f /proc/version ]; then
+  if grep -q Microsoft /proc/version; then
+    plugins+=(ssh-agent)
+  fi
 fi
 
 source $ZSH/oh-my-zsh.sh
