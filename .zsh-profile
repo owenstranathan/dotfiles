@@ -6,6 +6,7 @@
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 export EDITOR="/usr/bin/vim"
 export LANG=en_US.UTF-8
+export DOCKER_HOST='tcp://0.0.0.0:2375'
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -27,4 +28,10 @@ export PATH="/Users/Noodle/go/bin:${PATH}"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+# NVM garbage
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
