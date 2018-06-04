@@ -16,8 +16,10 @@ plugins=(
   kubectl
 )
 
-if grep -q Microsoft /proc/version; then
-  plugins+=(ssh-agent)
+if [ -f /proc/version ]; then
+  if grep -q Microsoft /proc/version; then
+    plugins+=(ssh-agent)
+  fi
 fi
 
 source $ZSH/oh-my-zsh.sh
