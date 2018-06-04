@@ -8,6 +8,8 @@ alias python=python3
 alias vizsh="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
+unalias ls
+
 function dotfiles() {
   /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME $@
 }
@@ -27,5 +29,10 @@ function login-api(){
   export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
 }
 
-code() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+mac_vscode_open() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias code=mac_vscode_open
+fi
 
