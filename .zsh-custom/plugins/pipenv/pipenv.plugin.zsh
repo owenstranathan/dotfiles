@@ -5,7 +5,7 @@ zsh-pipenv-shell-activate() {
   fi
 
   if [ -e "$(pwd)/Pipfile" ]; then
-    if [ ! "$PIPENV_ACTIVE" ]; then
+    if [[ ! "$PIPENV_ACTIVE" ]]; then
       pipenv shell
     fi
   fi  
