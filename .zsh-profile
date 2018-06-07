@@ -15,11 +15,15 @@ else
 fi
 
 # PATH EXPORTS
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 # go binaries
 export PATH="/Users/Noodle/go/bin:${PATH}"
+
 # Setting PATH for Python 3.5
 # export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 
