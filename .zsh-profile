@@ -22,10 +22,12 @@ export PATH=/usr/local/sbin:$PATH
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 # go binaries
-export PATH="/Users/Noodle/go/bin:${PATH}"
-
+export PATH="$HOME/go/bin:$PATH"
 # Setting PATH for Python 3.5
 # export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+
+# some packages install their binaries to $HOME/.local/bin so we add that to the $PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 
 # MISC
@@ -34,9 +36,9 @@ export PATH="/Users/Noodle/go/bin:${PATH}"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # NVM garbage
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # Autoenv
