@@ -26,7 +26,7 @@ export PATH="$HOME/go/bin:$PATH"
 # Setting PATH for Python 3.5
 # export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 
-# some packages install their binaries to $HOME/.local/bin so we add that to the $PATH
+# `pip install --user *` sometimes installs binaries to $HOME/.local/bin so we add that to the $PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 
