@@ -26,4 +26,5 @@ if [[ "$?" = 0 ]]; then
   echo "dotfiles checked out.";
 fi
 dotfiles config status.showUntrackedFiles no
+dotfiles branch --set-upstream-to origin/master
 
