@@ -20,6 +20,7 @@ if [ -f /proc/version ]; then
   if grep -q Microsoft /proc/version; then
     plugins+=(ssh-agent)
   fi
+  DISABLE_LS_COLORS="true"
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -55,7 +56,6 @@ CASE_SENSITIVE="true"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
