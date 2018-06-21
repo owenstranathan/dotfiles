@@ -21,6 +21,7 @@ if [ -f /proc/version ]; then
     plugins+=(ssh-agent)
     DISABLE_LS_COLORS="true"
   fi
+  DISABLE_LS_COLORS="true"
 fi
 
 source $ZSH/oh-my-zsh.sh
