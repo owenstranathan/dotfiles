@@ -6,7 +6,7 @@ alias resource="source ~/.zshrc"
 alias vizsh="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 
-unalias ls
+#unalias ls
 
 function dotfiles() {
   /usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME $@
