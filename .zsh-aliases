@@ -1,5 +1,5 @@
 # aliases && functions
-alias echopath=echo $PATH | tr ":" "\n";
+alias echopath='echo $PATH | tr ":" "\n";'
 alias virc="vim ~/.zshrc"
 alias vialias="vim ~/.aliases"
 alias resource="source ~/.zshrc"
