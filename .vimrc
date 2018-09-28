@@ -2,17 +2,19 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set number
+set nocompatible
+
+execute pathogen#infect()
 
 syntax on
 
 autocmd Filetype python setlocal tabstop=4
+set path+=**
 
-execute pathogen#infect()
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-"let g:linters_extra = []
+let NERDTreeShowHidden=1
 
-"if executable("flake8")
-"  let g:linters_extra += [
-"  \   ['python', "flake8 %s > %s", ["%f:%l:%c: %t%n %m"]]
-"  \]
-"endif
+nnoremap <C-\> :NERDTreeToggle<CR>
+

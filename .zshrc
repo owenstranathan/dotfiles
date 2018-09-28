@@ -1,8 +1,20 @@
+
+_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_CUSTOM=/$HOME/.zsh-custom
 
 ZSH_THEME="owiewestside"
+
+if [ -f $HOME/.zsh-aliases ]; then
+  source $HOME/.zsh-aliases;
+fi
+
+if [ -f $HOME/.zsh-profile ]; then
+  source $HOME/.zsh-profile;
+fi
+
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -27,21 +39,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 
-if [ -f $HOME/.zsh-aliases ]; then
-  source $HOME/.zsh-aliases;
-fi
-
-if [ -f $HOME/.zsh-profile ]; then
-  source $HOME/.zsh-profile;
-fi
-
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
