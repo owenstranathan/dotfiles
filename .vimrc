@@ -23,3 +23,6 @@ set t_ut=
 colorscheme codedark
 
 let g:airline_theme = 'codedark'
+let g:ale_set_highlights = 1
+let g:ale_python_pylint_change_directory = 0
+let g:ale_python_pyline_auto_pipenv = 1
