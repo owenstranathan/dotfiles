@@ -18,3 +18,8 @@ let NERDTreeShowHidden=1
 
 nnoremap <C-\> :NERDTreeToggle<CR>
 
+set t_Co=256
+set t_ut=
+colorscheme codedark
+
+let g:airline_theme = 'codedark'
