@@ -35,6 +35,7 @@ export PATH="$HOME/go/bin:$PATH"
 
 # `pip install --user *` sometimes installs binaries to $HOME/.local/bin so we add that to the $PATH
 export PATH="$HOME/.local/bin:$PATH"
+export WIN_HOME="/mnt/c/Users/$(whoami)/"
 
 # Add cloud sdk binaries to the path
 # export PATH="$HOME/.google-cloud-sdk/bin:$PATH"

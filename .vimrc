@@ -17,6 +17,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 
 nnoremap <C-\> :NERDTreeToggle<CR>
+noremap ,break :-1read $HOME/.vim/snippets/python/breakpoint<CR>
+
 
 set t_Co=256
 set t_ut=
