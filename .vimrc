@@ -5,6 +5,7 @@ set number
 set nocompatible
 set tags=tags
 set path+=**
+set mouse=a
 
 if $WSL == 1
   set t_Co=256
@@ -54,3 +55,12 @@ let g:ale_set_highlights = 1
 
 " NERDTree
 let NERDTreeShowHidden=1
+
+let pipenv_venv_path = system('pipenv --venv')
+if shell_error == 0
+  let g:env_python_binary_path = substitute(pipenv_venv_path, '\n', '', '') . '/bin/python'
+else
+  let g:env_python_binary_path = system('which python')
+endif
+
+let g:completor_python_binary = g:env_python_binary_path

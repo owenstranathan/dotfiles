@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
+[submodule ".vim/pack/completor/start/completor.vim"]
+	path = .vim/pack/completor/start/completor.vim
+	url = https://github.com/maralla/completor.vim.git

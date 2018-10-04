@@ -1,4 +1,8 @@
 
+if [ -z ${BYOBOO_AHH} ]; then
+  export BYOBOO_AHH="OOOO"
+  byobu -S $(date +%s)
+fi
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -6,13 +10,9 @@ ZSH_CUSTOM=/$HOME/.zsh-custom
 
 ZSH_THEME="owiewestside"
 
-if [ -f $HOME/.zsh-aliases ]; then
-  source $HOME/.zsh-aliases;
-fi
+[ -f $HOME/.zsh-aliases ] && source $HOME/.zsh-aliases;
 
-if [ -f $HOME/.zsh-profile ]; then
-  source $HOME/.zsh-profile;
-fi
+[ -f $HOME/.zsh-profile ] && source $HOME/.zsh-profile;
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -72,7 +72,5 @@ CASE_SENSITIVE="true"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
-
-
 
 

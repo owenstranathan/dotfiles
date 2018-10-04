@@ -4,6 +4,10 @@
 # export MANPATH="/usr/local/man:$MANPATH"
 # export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+[ ! -z ${ZSH_PROFILE_SRC} ] && return 0
+export ZSH_PROFILE_SRC="sourced"
+
 export EDITOR="/usr/bin/vim"
 export LANG=en_US.UTF-8
 
