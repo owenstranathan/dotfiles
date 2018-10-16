@@ -1,8 +1,8 @@
 
-if [ -z ${BYOBOO_AHH} ]; then
-  export BYOBOO_AHH="OOOO"
-  byobu -S $(date +%s)
-fi
+# if [ -z ${BYOBOO_AHH} ]; then
+#   export BYOBOO_AHH="OOOO"
+#   byobu -S $(date +%s)
+# fi
 
 export ZSH=$HOME/.oh-my-zsh
 
