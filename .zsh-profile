@@ -70,3 +70,4 @@ export CLOUDSDK_CONTAINER_USE_V1_API_CLIENT=false
 # Autoenv
 # source /usr/local/bin/activate.sh
 
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
