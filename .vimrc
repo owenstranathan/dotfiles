@@ -7,7 +7,7 @@ set tags=tags
 set path+=**
 set mouse=a
 
-if $WSL == 1
+if $TERM == "xterm"
   set t_Co=256
   set t_ut=
 endif
