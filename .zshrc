@@ -1,8 +1,8 @@
 
-if [ -z ${BYOBOO_AHH} ]; then
-  export BYOBOO_AHH="OOOO"
-  byobu -S $(date +%s)
-fi
+#if [ -z ${BYOBOO_AHH} ]; then
+#  export BYOBOO_AHH="OOOO"
+#  byobu -S $(date +%s)
+#fi
 
 export ZSH=$HOME/.oh-my-zsh
 
@@ -20,7 +20,6 @@ ZSH_THEME="owiewestside"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   virtualenv
   pipenv
   python
