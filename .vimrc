@@ -7,7 +7,7 @@ set tags=tags
 set path+=**
 set mouse=a
 
-if $WSL == 1
+if $TERM == "xterm" || $TERM == "screen"
   set t_Co=256
   set t_ut=
 endif
@@ -18,7 +18,7 @@ execute pathogen#infect()
 colorscheme codedark
 
 autocmd Filetype python setlocal tabstop=4
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 

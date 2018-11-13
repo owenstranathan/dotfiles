@@ -12,6 +12,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # `pip install --user *` sometimes installs binaries to $HOME/.local/bin so we add that to the $PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 
 # Add cloud sdk binaries to the path
 # export PATH="$HOME/.google-cloud-sdk/bin:$PATH"
@@ -65,3 +66,4 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim'
 fi
+
