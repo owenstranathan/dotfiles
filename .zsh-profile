@@ -1,46 +1,18 @@
 # User configuration
 
-# EXPORTS 
-# export MANPATH="/usr/local/man:$MANPATH"
-# export ARCHFLAGS="-arch x86_64"
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-[ ! -z ${ZSH_PROFILE_SRC} ] && return 0
-export ZSH_PROFILE_SRC="sourced"
-
-export EDITOR="/usr/bin/vim"
-export LANG=en_US.UTF-8
-
-if [ -f /proc/version ]; then
-  if grep -q Microsoft /proc/version; then
-    export DOCKER_HOST='tcp://0.0.0.0:2375'
-    export WSL=1
-  fi
-fi
-
-
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
-
 # PATH EXPORTS
-# If you come from bash you might have to change your $PATH.
+# go binaries
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-# go binaries
-export PATH="$HOME/go/bin:$PATH"
-# Setting PATH for Python 3.5
-# I'm pretty sure I never want this (Use brew instead) or just don't use 3.5
-# export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+
 
 # `pip install --user *` sometimes installs binaries to $HOME/.local/bin so we add that to the $PATH
 export PATH="$HOME/.local/bin:$PATH"
-export WIN_HOME="/mnt/c/Users/$(whoami)/"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 
 # Add cloud sdk binaries to the path
 # export PATH="$HOME/.google-cloud-sdk/bin:$PATH"
@@ -61,13 +33,37 @@ export CLOUDSDK_CONTAINER_USE_V1_API_CLIENT=false
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
+# OTHER EXPORTS 
+
+# export MANPATH="/usr/local/man:$MANPATH"
+# export ARCHFLAGS="-arch x86_64"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+export GOPATH=$HOME/go
+export WIN_HOME="/mnt/c/Users/$(whoami)/"
+
 # NVM garbage
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 # Autoenv
 # source /usr/local/bin/activate.sh
 
-export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
+export EDITOR="/usr/bin/vim"
+export LANG=en_US.UTF-8
+
+if [ -f /proc/version ]; then
+  if grep -q Microsoft /proc/version; then
+    export DOCKER_HOST='tcp://0.0.0.0:2375'
+    export WSL=1
+  fi
+fi
+
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
+

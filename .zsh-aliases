@@ -1,5 +1,5 @@
-[ ! -z ${ZSH_ALIASES_SRC} ] && return 0
-export ZSH_ALIASES_SRC="sourced"
+# [ ! -z ${ZSH_ALIASES_SRC} ] && return 0
+# export ZSH_ALIASES_SRC="sourced"
 
 # aliases && functions
 alias echopath='echo $PATH | tr ":" "\n";'
@@ -9,6 +9,7 @@ alias resource="source ~/.zshrc"
 alias vizsh="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias status="git status -s"
+alias source_env="source ~/.source_env.sh"
 
 #unalias ls
 
