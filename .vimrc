@@ -7,7 +7,7 @@ set tags=tags
 set path+=**
 set mouse=a
 
-if $TERM == "xterm"
+if $TERM == "xterm" || $TERM == "screen"
   set t_Co=256
   set t_ut=
 endif
