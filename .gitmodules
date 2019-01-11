@@ -10,6 +10,6 @@
 [submodule ".vim/pack/completor/start/completor.vim"]
 	path = .vim/pack/completor/start/completor.vim
 	url = https://github.com/maralla/completor.vim.git
-[submodule ".vim/bundle/shfmt"]
-	path = .vim/bundle/shfmt
-	url = https://github.com/z0mbix/vim-shfmt
+[submodule ".vim/bundle/vim-shfmt"]
+	path = .vim/bundle/vim-shfmt
+	url = https://github.com/42wim/vim-shfmt
