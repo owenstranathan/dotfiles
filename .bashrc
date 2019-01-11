@@ -1,6 +1,8 @@
 
 # Uncomment to use zsh
-
+if [[ -f /usr/bin/zsh ]]; then
+  zsh
+fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
