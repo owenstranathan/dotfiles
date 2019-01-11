@@ -60,7 +60,7 @@ let pipenv_venv_path = system('pipenv --venv')
 if shell_error == 0
   let g:env_python_binary_path = substitute(pipenv_venv_path, '\n', '', '') . '/bin/python'
 else
-  let g:env_python_binary_path = system('which python')
+  let g:env_python_binary_path = system('which python3.7')
 endif
 
 let g:completor_python_binary = g:env_python_binary_path

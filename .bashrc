@@ -1,7 +1,6 @@
-
 # Uncomment to use zsh
-if [[ -f /usr/bin/zsh ]]; then
-  zsh
+if [[ -t 1 ]]; then
+	exec zsh
 fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -10,8 +9,8 @@ fi
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -38,12 +37,12 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+xterm-color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -52,30 +51,30 @@ esac
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+	if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+		# We have color support; assume it's compliant with Ecma-48
+		# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+		# a case would tend to support setf rather than setaf.)
+		color_prompt=yes
+	else
+		color_prompt=
+	fi
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+xterm* | rxvt*)
+	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+	;;
+*) ;;
+
 esac
 
 # enable color support of ls and also add handy aliases
@@ -95,7 +94,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -106,42 +104,41 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 SSH_ENV=$HOME/.ssh/environment
 
-function start_agent {
-     echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
-     echo succeeded
-     chmod 600 ${SSH_ENV}
-     . ${SSH_ENV} > /dev/null
-     ssh-add
+function start_agent() {
+	echo "Initialising new SSH agent..."
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' >${SSH_ENV}
+	echo succeeded
+	chmod 600 ${SSH_ENV}
+	. ${SSH_ENV} >/dev/null
+	ssh-add
 }
 
 # Source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
-     . ${SSH_ENV} > /dev/null
-     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-     ps -efp ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-         start_agent;
-     }
+	. ${SSH_ENV} >/dev/null
+	#ps ${SSH_AGENT_PID} doesn't work under cywgin
+	ps -efp ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
+		start_agent
+	}
 else
-     start_agent;
+	start_agent
 fi
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -154,11 +151,11 @@ export DOCKER_HOST='tcp://0.0.0.0:2375'
 # source /usr/local/bin/virtualenvwrapper.sh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # LS_COLORS='ow=01;36;40'
-# export LS_COLORS 
+# export LS_COLORS
 
 # Pipenv aliases
 alias pes="pipenv shell"
@@ -169,21 +166,21 @@ alias docker-compose="/usr/local/bin/docker-compose"
 alias clp="/mnt/c/Windows/System32/clip.exe"
 
 murder() {
-  if [[ ! $1 ]]; then
-    echo "No argument provided, need victim to murder"
-    return 1
-  fi
-  pid=$(ps aux | grep "$1" | grep -v grep | awk '{print $2}')
-  kill -9 $pid
+	if [[ ! $1 ]]; then
+		echo "No argument provided, need victim to murder"
+		return 1
+	fi
+	pid=$(ps aux | grep "$1" | grep -v grep | awk '{print $2}')
+	kill -9 $pid
 }
 
 export PATH=$PATH:/usr/local/go/bin
 
 #put me in your .bashrc after installing lpass
-function login-api(){
-  SECRET_NAME="! appfigures.com"
-  export API_USER=${USER}@appfigures.com
-  export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
+function login-api() {
+	SECRET_NAME="! appfigures.com"
+	export API_USER=${USER}@appfigures.com
+	export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
 }
 
 eval "$(pipenv --completion)"
