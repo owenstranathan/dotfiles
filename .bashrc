@@ -1,8 +1,5 @@
 
 # Uncomment to use zsh
-if [ -t 1 ]; then
-  exec zsh
-fi 
 
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
