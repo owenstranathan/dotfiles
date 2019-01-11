@@ -31,10 +31,20 @@ function login-api(){
   export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
 }
 
+function source_env {
+  EXPORTS=($(cat "$PWD/.env"))
+  for exp in "${EXPORTS[@]}"; do
+    if [[ ! "$exp" =~ ^#.* ]]; then 
+      exp="export $exp"
+    fi
+    eval "$exp"
+  done
+}
 
 mac_vscode_open() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 if [[ "$(uname)" == "Darwin" ]]; then
   alias code=mac_vscode_open
 fi
+
 

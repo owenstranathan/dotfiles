@@ -9,11 +9,18 @@ export PATH=/usr/local/sbin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin"
 
 
-# `pip install --user *` sometimes installs binaries to $HOME/.local/bin so we add that to the $PATH
+# `pip install --user *` installs binaries to $HOME/.local/bin so we add that to the $PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/.local/go/bin:$PATH"
 export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 
+# GOPATH
+export GOPATH="$HOME/code/go"
+if [ -d "$HOME/Code" ]; then
+  export GOPATH="$HOME/Code/go"
+fi
+export PATH="$GOPATH/bin:$PATH"
 # Add cloud sdk binaries to the path
 # export PATH="$HOME/.google-cloud-sdk/bin:$PATH"
 
@@ -26,6 +33,7 @@ fi
 if [ -f $HOME/.google-cloud-sdk/completion.zsh.inc ]; then
   source $HOME/.google-cloud-sdk/completion.zsh.inc;
 fi
+
 export CLOUDSDK_CONTAINER_USE_V1_API_CLIENT=false
 
 # MISC
@@ -39,7 +47,7 @@ export CLOUDSDK_CONTAINER_USE_V1_API_CLIENT=false
 # export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export GOPATH=$HOME/go
+# export GOPATH=$HOME/go # NO NO NO!
 export WIN_HOME="/mnt/c/Users/$(whoami)/"
 
 # NVM garbage
@@ -60,10 +68,4 @@ if [ -f /proc/version ]; then
   fi
 fi
 
-
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
 
