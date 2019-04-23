@@ -26,18 +26,20 @@ function murder() {
 }
 
 function login-api(){
-  SECRET_NAME="! appfigures.com"
-  export API_USER=${USER}@appfigures.com
-  export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
+  SECRET_NAME="api-access-token"
+  export API_TOKEN=$(lpass show $SECRET_NAME --note)
+  #export API_USER=${USER}@appfigures.com
+  #export API_PASSWORD=$(lpass show "$SECRET_NAME" --password)
 }
 
 function source_env {
-  EXPORTS=($(cat "$PWD/.env"))
+  dotenv_filename=${PWD}/.env
+  zmodload zsh/mapfile && EXPORTS=( "${(f)mapfile[$dotenv_filename]}" )
   for exp in "${EXPORTS[@]}"; do
-    if [[ ! "$exp" =~ ^#.* ]]; then 
+    if [[ ! "$exp" =~ ^#.* ]] && [[ $exp ]]; then 
       exp="export $exp"
+      eval "$exp"
     fi
-    eval "$exp"
   done
 }
 

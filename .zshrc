@@ -21,7 +21,7 @@ ZSH_THEME="owiewestside"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   virtualenv
-  pipenv
+#  pipenv
   python
   kubectl
 )

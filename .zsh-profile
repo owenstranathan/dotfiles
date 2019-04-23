@@ -68,4 +68,6 @@ if [ -f /proc/version ]; then
   fi
 fi
 
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_SKIP_LOCK=1
 
