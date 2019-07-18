@@ -64,3 +64,7 @@ else
 endif
 
 let g:completor_python_binary = g:env_python_binary_path
+
+set visualbell t_vb=
+
+set guifont=IBM\ Plex\ Mono:h14
