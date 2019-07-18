@@ -19,8 +19,11 @@ export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 export GOPATH="$HOME/code/go"
 if [ -d "$HOME/Code" ]; then
   export GOPATH="$HOME/Code/go"
+elif [[ -d "$HOME/go" ]]; then
+  export GOPATH="$HOME/go"
 fi
 export PATH="$GOPATH/bin:$PATH"
+
 # Add cloud sdk binaries to the path
 # export PATH="$HOME/.google-cloud-sdk/bin:$PATH"
 
@@ -71,3 +74,10 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_SKIP_LOCK=1
 
+if [[ "$(uname)" == *Darwin* ]]; then
+  PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+  PKG_CONFIG_PATH="/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
+  PKG_CONFIG_PATH="/usr/local/Cellar/libxml++3/3.0.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+  #PKG_CONFIG_PATH="/usr/local/Cellar/libxml++/2.40.1/lib/pkgconfig:$PKG_CONFIG_PATH"
+  export PKG_CONFIG_PATH
+fi
