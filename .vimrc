@@ -1,11 +1,13 @@
-set tabstop=2
-set shiftwidth=2
-set expandtab
+" set tabstop=2
+" set shiftwidth=2
+" set expandtab
 set number
 set nocompatible
 set tags=tags
 set path+=**
 set mouse=a
+set visualbell t_vb=
+set guifont=IBM\ Plex\ Mono:h14
 
 if $TERM == "xterm" || $TERM == "screen"
   set t_Co=256
@@ -34,11 +36,8 @@ function! g:Breakpoint()
   endif
 endfunction
 
-
 nnoremap <C-\> :NERDTreeToggle<CR>
 nnoremap ,break :call Breakpoint() <CR>
-
-
 
 " AIRLINE
 let g:airline_theme = 'codedark'
@@ -56,15 +55,17 @@ let g:ale_set_highlights = 1
 " NERDTree
 let NERDTreeShowHidden=1
 
-let pipenv_venv_path = system('pipenv --venv')
-if shell_error == 0
-  let g:env_python_binary_path = substitute(pipenv_venv_path, '\n', '', '') . '/bin/python'
-else
-  let g:env_python_binary_path = system('which python3.7')
-endif
+" let pipenv_venv_path = system('pipenv --venv')
+" if shell_error == 0
+"   let g:env_python_binary_path = substitute(pipenv_venv_path, '\n', '', '') . '/bin/python'
+" else
+"   let g:env_python_binary_path = system('which python3.7')
+" endif
+" 
+" let g:completor_python_binary = g:env_python_binary_path
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-let g:completor_python_binary = g:env_python_binary_path
-
-set visualbell t_vb=
-
-set guifont=IBM\ Plex\ Mono:h14
+nnoremap <F4> :make!<cr>
+nnoremap <F5> :!make run<cr>
+nnoremap <F6> :!make both<cr>
